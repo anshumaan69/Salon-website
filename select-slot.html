@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Slot</title>
+    <link rel="stylesheet" href="./select-slot.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Select Your Appointment Slot</h1>
+            </div>
+            <div class="card-body">
+                <form id="slotForm">
+                    <label for="appointmentDate">Select Date:</label>
+                    <input type="date" id="appointmentDate" name="appointmentDate" class="form-control" required><br><br>
+
+                    <label for="appointmentTime">Select Time Slot:</label>
+                    <select id="appointmentTime" name="appointmentTime" class="form-control" required>
+                        <option value="">Select a time slot</option>
+                        <option value="9:00 AM - 10:00 AM">9:00 AM - 10:00 AM</option>
+                        <option value="10:00 AM - 11:00 AM">10:00 AM - 11:00 AM</option>
+                        <option value="11:00 AM - 12:00 PM">11:00 AM - 12:00 PM</option>
+                        <option value="1:00 PM - 2:00 PM">1:00 PM - 2:00 PM</option>
+                        <option value="2:00 PM - 3:00 PM">2:00 PM - 3:00 PM</option>
+                        <option value="3:00 PM - 4:00 PM">3:00 PM - 4:00 PM</option>
+                        <option value="4:00 PM - 5:00 PM">4:00 PM - 5:00 PM</option>
+                    </select><br><br>
+
+                    <button type="submit" class="btn-primary" onclick="gotopayment()">Confirm Slot</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        function gotopayment(){
+            window.location.href="./booking.html"
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="./signup.css">
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <h1>Signup Page</h1>
+            </div>
+            <div class="card-body">
+                <form id="myForm">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control">
+                    <span id="nameError" class="error"></span><br><br>
+
+                    <label for="emailid">Email:</label>
+                    <input type="text" id="emailid" name="emailid" class="form-control">
+                    <span id="emailError" class="error"></span><br><br>
+
+                    <label for="setpswd">Set Password:</label>
+                    <input type="password" id="setpswd" name="setpswd" class="form-control">
+                    <span id="setpswderror" class="error"></span><br><br>
+
+                    <label for="cnfrmpswd">Confirm Password:</label>
+                    <input type="password" id="cnfrmpswd" name="cnfrmpswd" class="form-control">
+                    <span id="cnfrmpswderror" class="error"></span><br><br>
+
+                    <button type="button" class="btn-primary" onclick="validateForm()">SUBMIT</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            // Clear previous error messages
+            document.getElementById("nameError").textContent = "";
+            document.getElementById("emailError").textContent = "";
+            document.getElementById("setpswderror").textContent = "";
+            document.getElementById("cnfrmpswderror").textContent = "";
+
+            let isValid = true;
+
+            // Name validation
+            const name = document.getElementById("name").value.trim();
+            if (name === "") {
+                document.getElementById("nameError").textContent = "Name cannot be empty";
+                isValid = false;
+            }
+
+            // Email validation
+            const email = document.getElementById("emailid").value.trim();
+            const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (email === "") {
+                document.getElementById("emailError").textContent = "Email is required.";
+                isValid = false;
+            } else if (!emailPattern.test(email)) {
+                document.getElementById("emailError").textContent = "Invalid email format.";
+                isValid = false;
+            }
+
+            // Password validation
+            const setpswd = document.getElementById("setpswd").value.trim();
+            if (setpswd === "") {
+                document.getElementById("setpswderror").textContent = "Password is required.";
+                isValid = false;
+            } else if (setpswd.length < 6) {
+                document.getElementById("setpswderror").textContent = "Password must be at least 6 characters long.";
+                isValid = false;
+            }
+
+            // Confirm Password validation
+            const cnfrmpswd = document.getElementById("cnfrmpswd").value.trim();
+            if (cnfrmpswd === "") {
+                document.getElementById("cnfrmpswderror").textContent = "Confirm Password is required.";
+                isValid = false;
+            } else if (cnfrmpswd !== setpswd) {
+                document.getElementById("cnfrmpswderror").textContent = "Passwords do not match.";
+                isValid = false;
+            }
+
+            // If all validations pass
+            if (isValid) {
+                alert("Form submitted successfully!");
+                window.location.href = 'login.html'; // Redirect to login.html
+            }
+        }
+    </script>
+</body>
+</html>

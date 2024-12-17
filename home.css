@@ -1,0 +1,30 @@
+body,.xx {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('./salon.jpg');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
+}
+footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+
+.nav-link { font-size: 1.25rem; }
+ul.nav a {
+    color: #6c757d; 
+    transition: color 0.3s;
+}
+
+ul.nav a:hover {
+    color: #000; 
+}
+
+ul.nav i {
+    font-size: 24px;
+}
+

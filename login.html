@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="card-header">
+        <h1>Login Page</h1>
+      </div>
+      <div class="card-body">
+        <form id="myForm">
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" class="form-control">
+          <span id="emailError" class="error"></span><br><br>
+
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" class="form-control">
+          <span id="passwordError" class="error"></span><br><br>
+
+          <button type="button" class="btn btn-primary" onclick="validateForm()">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function validateForm() {
+      let isValid = true; // Initialize the validity flag
+
+      // Clear previous error messages
+      document.getElementById("emailError").textContent = "";
+      document.getElementById("passwordError").textContent = "";
+
+      // Email validation
+      const email = document.getElementById("email").value.trim();
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+      if (email === "") {
+        document.getElementById("emailError").textContent = "Email is required.";
+        isValid = false;
+      } else if (!emailPattern.test(email)) {
+        document.getElementById("emailError").textContent = "Invalid email format.";
+        isValid = false;
+      }
+
+      // Password validation
+      const password = document.getElementById("password").value.trim();
+      if (password === "") {
+        document.getElementById("passwordError").textContent = "Password is required.";
+        isValid = false;
+      } else if (password.length < 6) {
+        document.getElementById("passwordError").textContent = "Password must be at least 6 characters long.";
+        isValid = false;
+      }
+
+      // If all validations pass
+      if (isValid) {
+        if (email === "anshumaan.1611@gmail.com" && password === "Raghav@1611") {
+          window.location.href = './booking.html'; // Redirect to bookings.html
+        } else {
+          alert("Invalid email or password.");
+        }
+      }
+    }
+  </script>
+</body>
+</html>
